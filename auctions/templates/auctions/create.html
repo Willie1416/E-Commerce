@@ -1,0 +1,41 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Create Listing</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <form action="{% url 'new_listing' %}" method="post">
+                {% csrf_token %}
+                <div class="mb">
+                    <input type="text" placeholder="Title" name="name" class="form-control">
+                    <br>
+                </div>
+                <div class="mb">
+                    <label for="description" class="form-label">Description:</label>
+                    <br>
+                    <textarea name="description" id="item-description" cols="50" rows="3" class="form-control"></textarea>
+                    <br>
+                </div>
+                <div class="mb">
+                    <label for="number" class="form-label">Starting Price: </label>
+                    <input type="number" name="price" id="item-price" class="form-control">
+                    <br>
+                </div>
+                <div class="mb">
+                    <label for="image" class="form-label">Image URL: </label>
+                    <input type="url" name="image" id="image" class="form-control">
+                    <br>
+                </div>
+                <div class="mb">
+                    <label for="category" class="form-label">Category: </label>
+                    <input type="text" name="category" id="category" class="form-control">
+                    <br>
+                </div>
+                <div class="mb">
+                    <input type="submit" name="submit" id="submit" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>
+    
+{% endblock %}

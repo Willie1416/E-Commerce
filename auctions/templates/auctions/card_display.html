@@ -1,0 +1,17 @@
+<div class="row">
+    {% for listing in listings %}
+    <div class="col-md-4">
+        <a href="{% url 'listing' listing.id %}" class="text-decoration-none">
+        <div class="card mb-4">
+            <img src="{{ listing.image }}" class="card-img-top img-fluid" alt="{{ listing.name }}" style="height: 20rem;">
+            <div class="card-body text-dark">
+                <h4 class="card-title">{{ listing.name }}</h4>
+                <p class="card-text">{{ listing.description }}</p>
+                <p class="card-text"><strong>Price: ${{ listing.price }}</strong></p>
+                <p class="card-text"><small class="text-muted">Created {{ listing.timestamp }}</small></p>
+            </div>
+        </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
